@@ -1,0 +1,63 @@
+<ion-header>
+	<ion-navbar color="pink">
+		<button ion-button menuToggle>
+    		  <ion-icon name="menu"></ion-icon>
+   		</button>
+		<ion-title>列表</ion-title>
+		<ion-buttons end>
+			<button ion-button (click)="addCard()">
+		        <ion-icon class="icon_base" name="md-add"></ion-icon>
+		    </button>
+			<button ion-button (click)="getWxList()">
+		        <ion-icon class="icon_base" name="md-refresh"></ion-icon>
+		    </button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<div [virtualScroll]="weixinList">
+		<ion-card *virtualItem="let weixin;let i = index">
+			<ion-item>
+				<ion-avatar item-left>
+					<img [src]="weixin.user.profile_image_url">
+				</ion-avatar>
+				<h2>{{weixin.user.name}}</h2>
+				<p>{{weixin.created_at}}</p>
+			</ion-item>
+			<img [src]="weixin.bmiddle_pic" *ngIf="weixin.bmiddle_pic != null">
+			<ion-card-content>
+				<p>{{weixin.text}}</p>
+			</ion-card-content>
+			<ion-row>
+				<ion-col>
+					<button ion-button icon-left clear small>
+		     		  	<ion-icon name="thumbs-up"></ion-icon>
+		      			<div>{{weixin.attitudes_count}}</div>
+	     		    </button>
+				</ion-col>
+				<ion-col>
+					<button ion-button icon-left clear small>
+				        <ion-icon name="text"></ion-icon>
+				        <div>{{weixin.comments_count}}</div>
+	     			</button>
+				</ion-col>
+				<ion-col center text-center>
+					<ion-note>
+						11h ago
+					</ion-note>
+				</ion-col>
+			</ion-row>
+		</ion-card>
+	</div>
+	<ion-infinite-scroll (ionInfinite)="loadWeixin($event)">
+    		<ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+	
+	<ion-fab right bottom>
+	    <button ion-fab color="pink"><ion-icon name="arrow-dropleft"></ion-icon></button>
+	    <ion-fab-list side="left" >
+	    		<button ion-fab><ion-icon name="md-add" color="pink"></ion-icon></button>
+	    		<button ion-fab><ion-icon name="logo-twitter" color="pink"></ion-icon></button>
+	    </ion-fab-list>
+    </ion-fab>
+</ion-content>
