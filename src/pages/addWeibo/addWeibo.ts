@@ -3,10 +3,10 @@ import {Component} from '@angular/core';
 import {NavController,ViewController} from "ionic-angular";
 
 @Component({
-	templateUrl: 'addCard.html'
+	templateUrl: 'addWeibo.html'
 })
 
-export class addCard {
+export class addWeibo {
 	
 	constructor (public navCtrl:NavController,public viewCtrl:ViewController){
 	}

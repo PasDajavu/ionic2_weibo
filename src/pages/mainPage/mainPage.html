@@ -5,9 +5,6 @@
    		</button>
 		<ion-title>列表</ion-title>
 		<ion-buttons end>
-			<button ion-button (click)="addCard()">
-		        <ion-icon class="icon_base" name="md-add"></ion-icon>
-		    </button>
 			<button ion-button (click)="getWxList()">
 		        <ion-icon class="icon_base" name="md-refresh"></ion-icon>
 		    </button>
@@ -53,11 +50,10 @@
     		<ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
     </ion-infinite-scroll>
 	
-	<ion-fab right bottom>
+	<ion-fab right bottom #fab>
 	    <button ion-fab color="pink"><ion-icon name="arrow-dropleft"></ion-icon></button>
 	    <ion-fab-list side="left" >
-	    		<button ion-fab><ion-icon name="md-add" color="pink"></ion-icon></button>
-	    		<button ion-fab><ion-icon name="logo-twitter" color="pink"></ion-icon></button>
+			<button ion-fab (click)="addWeibo(fab)"><ion-icon name="md-create" color="pink"></ion-icon></button>
 	    </ion-fab-list>
     </ion-fab>
 </ion-content>

@@ -4,7 +4,7 @@ import { MyApp } from './app.component';
 import { mainPage } from '../pages/mainPage/mainPage';
 import { birthdayCard } from '../pages/birthdayCard/birthdayCard';
 import { Page2 } from '../pages/page2/page2';
-import { addCard } from '../pages/mainPage/addCard';
+import { addWeibo } from '../pages/addWeibo/addWeibo';
 import {Storage} from "@ionic/storage";
 import {GlobalData} from '../global/globalData'
 
@@ -14,7 +14,7 @@ import {GlobalData} from '../global/globalData'
     mainPage,
     Page2,
     birthdayCard,
-    addCard,
+    addWeibo,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,7 +25,7 @@ import {GlobalData} from '../global/globalData'
     mainPage,
     Page2,
     birthdayCard,
-    addCard,
+    addWeibo,
   ],
   providers: [Storage,GlobalData,{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

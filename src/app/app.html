@@ -1,32 +1,66 @@
 <ion-menu [content]="content">
-	<div ion-div class="app_customer" color="pink">
+	<div ion-div class="menu_customer" color="pink">
 		<div>
-			<img class="app_user_head" *ngIf="user" [src]="user.profile_image_url">
+			<img class="menu_user_head" *ngIf="user" [src]="user.profile_image_url">
 		</div>
-		<div class="app_user_name">{{user.name}}</div>
-		<div class="app_user_desc">{{user.description}}</div>
+		<div class="menu_user_name">{{user.name}}</div>
+		<div class="menu_user_desc">{{user.description}}</div>
 	</div>
 
-	<!--<button ion-button color="pink">{{user.id}}</button>-->
+	<ion-list menuCloses>
+		<ion-item>
+			<ion-icon class="base_icon" name="md-home" item-left></ion-icon>
+			<span class="base_font">首页</span>
+			<ion-icon class="base_icon" name="ios-arrow-forward" item-right></ion-icon>
+		</ion-item>
+		<ion-item>
+			<ion-icon class="base_icon" name="md-person" item-left></ion-icon>
+			<span class="base_font">我的主页</span>
+			<ion-icon class="base_icon" name="ios-arrow-forward" item-right></ion-icon>
+		</ion-item>
+		<ion-item>
+			<ion-icon class="base_icon" name="md-notifications" item-left></ion-icon>
+			<span class="base_font">未读消息</span>
+			<ion-icon class="base_icon" name="ios-arrow-forward" item-right></ion-icon>
+		</ion-item>
+		<ion-item>
+			<ion-icon class="base_icon" name="md-settings" item-left></ion-icon>
+			<span class="base_font">注销登录</span>
+			<ion-icon class="base_icon" name="ios-arrow-forward" item-right></ion-icon>
+		</ion-item>
+	</ion-list>
+	<div class="menu_footer">@PasDajavu</div>
 </ion-menu>
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
 <style type="text/css">
-	.app_customer{
+	.menu_customer{
 		width: 100%;
-		height: 120px;
+		height: 130px;
 		background: #FF80AB;
 		font-family: "微软雅黑";
 	}
-	.app_user_head{
+	.menu_user_head{
 		width: 60px;
 		height: 60px;
-		margin: 10px 20px;
+		margin: 10px 20px 0px 20px;
 		border-radius: 30px;
 		background-size: 100% 100%;
 	}
-	.app_user_name,app_user_desc{
-		display: inline-block;
+	.menu_user_name,.menu_user_desc{
+		margin-left: 20px;
 		color: white;
+	}
+	.menu_user_name{
+		font-size: 14px;
+	}
+	.menu_user_desc{
+		font-size: 13px;
+	}
+	.menu_footer{
+		position:absolute;
+		bottom: 10px;
+		right: 10px;
+		color: #d1d1d1;
 	}
 </style>

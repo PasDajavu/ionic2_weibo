@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import {Http} from '@angular/http';
-import { NavController,ModalController} from 'ionic-angular';
+import { NavController,ModalController,FabContainer} from 'ionic-angular';
 import { birthdayCard } from '../birthdayCard/birthdayCard';
-import { addCard } from './addCard';
+import { addWeibo } from '../addWeibo/addWeibo';
 import {Storage} from '@ionic/storage';
 
 //分页
@@ -58,9 +58,11 @@ export class mainPage {
 	  	});
 	}
 	
-	addCard(){
-		let addCardModal = this.modalCtrl.create(addCard);
-		addCardModal.present();
+	addWeibo(fab:FabContainer){
+		let addWeiboModal = this.modalCtrl.create(addWeibo);
+		addWeiboModal.present();
+		//关闭fab
+		fab.close();
 	}
 	
 	
