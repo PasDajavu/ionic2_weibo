@@ -1,7 +1,12 @@
 .ac_butSuper{
     width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 .ac_but{
-    height: 35px;
+    flex: none;
     width: 80px;
+    height: 35px;
 }
