@@ -27,8 +27,8 @@ export class GlobalData{
             self.http.get('https://api.weibo.com/oauth2/authorize?client_id=' + weiboConfig.appKey + '&response_type=code&redirect_uri=' + weiboConfig.backHttp + '').subscribe(function (res: any) {
                 let tempCode = res.url.split('code=')[1];
                 self.http.post('https://api.weibo.com/oauth2/access_token?client_id=' + weiboConfig.appKey + '&client_secret=' + weiboConfig.appSecret + '&grant_type=authorization_code&redirect_uri=' + weiboConfig.backHttp + '&code=' + tempCode + '', {}).subscribe(function (acc: any) {
-                self.storage.set('access_token',JSON.parse(acc._body).access_token);
-                console.log(JSON.parse(acc._body).access_token)
+                    self.storage.set('access_token',JSON.parse(acc._body).access_token);
+                    console.log(JSON.parse(acc._body).access_token)
                 });
             });
         } else {
